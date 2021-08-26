@@ -1,6 +1,13 @@
 import Squares from "./components/Squares";
 
 function App() {
+  const days = []
+  for (let i = 1; i <= 31; i++) {
+    days.push({
+      day: i
+    })
+  }
+  console.log(days)
 
   return (
     <>
@@ -18,6 +25,7 @@ function App() {
           </div>
           {
           /*
+          <div className="daysSquares">
           <div className="square square1">1</div>
           <div className="square square2">2</div>
           <div className="square square3">3</div>
@@ -27,9 +35,10 @@ function App() {
           <div className="square square7">7</div>
           <div className="square square8">8</div>
           <div className="square square9">9</div>
+          </div>
           */
           }
-          <Squares squares={9} />
+          <Squares squares={days} />
         </div>
         <footer>made by me lol</footer>
       </div>
