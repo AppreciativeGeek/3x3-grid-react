@@ -1,44 +1,32 @@
+import { useState } from "react";
 import Squares from "./components/Squares";
+import DaysLabel from "./components/DaysLabel";
 
 function App() {
-  const days = []
+  const x = []
   for (let i = 1; i <= 31; i++) {
-    days.push({
-      day: i
+    const id = Math.floor(Math.random() * 10000) + 1
+    x.push({
+      id,
+      day: i,
+      showing: false
     })
   }
-  console.log(days)
+  const [days, setDays] = useState(x)
+
+  const toggleShowing = (id) => {
+    setDays(days.map((day) => 
+      day.id === id ? { ...day, showing: !day.showing } : { ...day, showing: false }
+    ))
+  }
 
   return (
     <>
       <div className="container">
         <h1>Calendar lol</h1>
         <div className="calendar">
-          <div className="daysLabel">
-            <div class="day sunday">Sunday</div>
-            <div class="day monday">Monday</div>
-            <div class="day tuesday">Tuesday</div>
-            <div class="day wednesday">Wednesday</div>
-            <div class="day thursday">Thursday</div>
-            <div class="day friday">Friday</div>
-            <div class="day saturday">Saturday</div>
-          </div>
-          {
-          /*
-          <div className="daysSquares">
-          <div className="square square1">1</div>
-          <div className="square square2">2</div>
-          <div className="square square3">3</div>
-          <div className="square square4">4</div>
-          <div className="square square5">5</div>
-          <div className="square square6">6</div>
-          <div className="square square7">7</div>
-          <div className="square square8">8</div>
-          <div className="square square9">9</div>
-          </div>
-          */
-          }
-          <Squares squares={days} />
+          <DaysLabel />
+          <Squares squares={days} toggleShowing={toggleShowing} />
         </div>
         <footer>made by me lol</footer>
       </div>

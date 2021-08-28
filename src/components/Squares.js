@@ -1,9 +1,11 @@
-const Squares = ({ squares }) => {
+import Square from './Square'
+
+const Squares = ({ squares, toggleShowing }) => {
     return (
         <>
             <div className="daysSquares">
                 {squares.map((square) => (
-                    <div className={`square square${square.day}`} >{square.day}</div>
+                    <Square square={square} toggleShowing={toggleShowing} />
                 ))}
             </div>
         </>
