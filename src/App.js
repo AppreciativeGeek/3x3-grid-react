@@ -9,7 +9,8 @@ function App() {
     x.push({
       id,
       day: i,
-      showing: false
+      showing: false,
+      notes: ""
     })
   }
   const [days, setDays] = useState(x)
@@ -20,13 +21,20 @@ function App() {
     ))
   }
 
+  const editNotes = (id, notes) => {
+    console.log(id, notes)
+    setDays(days.map((day) =>
+      day.id === id ? { ...day, notes: notes } : day
+    ))
+  }
+
   return (
     <>
       <div className="container">
         <h1>Calendar lol</h1>
         <div className="calendar">
           <DaysLabel />
-          <Squares squares={days} toggleShowing={toggleShowing} />
+          <Squares squares={days} toggleShowing={toggleShowing} onEdit={editNotes} />
         </div>
         <footer>made by me lol</footer>
       </div>

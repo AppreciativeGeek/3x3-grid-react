@@ -42,7 +42,6 @@ body {
 .calendar .daysSquares .square {
   display: flex;
   background-color: honeydew;
-  border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 10px;
   font-size: min(5vw, 15vh - 8px);
   width: 15vh;
@@ -68,12 +67,22 @@ body {
   position: fixed;
   left: 0px;
   top: 0px;
-  background-color: cornsilk;
   margin-top: 10px;
   margin-left: 10px;
+}
+
+.popupContent {
+  background-color: cornsilk;
   border: 2px solid black;
   width: 15vw;
   height: auto;
+}
+
+.popupButton {
+  background-color: lightblue;
+  float: right;
+  padding-right: 4%;
+  padding-left: 4%;
 }
 
 footer {
